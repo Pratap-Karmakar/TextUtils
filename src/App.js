@@ -2,9 +2,11 @@
 import { useState } from 'react';
 import './App.css';
 import Alert from './components/Alert';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar'
 import TextForm from './components/TextForm';
+
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -28,7 +30,14 @@ function App() {
       // bootstrap backgound color class name
       setTextAreaBackground('secondary');
       // we need to call the showAlert function here and pass it's two arguments message and type  to show an alert while dark mode is enabled
-      showAlert("Dark mode has been enabled!","success");
+      showAlert("Dark mode has been enabled!", "success");
+      document.title = 'TextUtils - Dark Mode'
+      // setInterval(() => {
+      //   document.title="Install TextUtils Now"
+      // }, 2000);
+      // setInterval(() => {
+      //   document.title="TextUtils is Amazing"
+      // }, 1500);
     }
     else {
       setMode('light');
@@ -37,11 +46,12 @@ function App() {
       document.body.style.backgroundColor = 'white'
       setTextAreaBackground('light');
       // we need to call the showAlert function here and pass it's two arguments message and type to show an alert while light mode is enabled
-      showAlert("Light mode has been enabled!","success");
+      showAlert("Light mode has been enabled!", "success");
+      document.title = 'TextUtils - Light Mode'
     }
   }
 
-//////////// alert
+  //////////// alert
 
   const [alert, setAlert] = useState(null);
   // this type argument is for the bootstrap types and msg will pass the message
@@ -61,11 +71,13 @@ function App() {
     <div className="App">
 
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleSwitch={toggleSwitch} toggleText={toggleText} textColor={textColor} />
-      <Alert alert={alert}/>
-      {/* <Navbar/> */}
+      <Alert alert={alert} />
+      
       <div className='container my-3'>
-        <TextForm heading="Enter the text to analyze below..." textColor={textColor} textAreaBackground={textAreaBackground} showAlert={showAlert}/>
-        {/* <About heading="About Us"/> */}
+      <Routes>
+        <Route exact path='/' element={<TextForm heading="Enter the text to analyze below..." textColor={textColor} textAreaBackground={textAreaBackground} showAlert={showAlert} mode={mode} />} />
+        <Route exact path="/about" element={<About heading="About Us" />} />
+      </Routes>
       </div>
 
     </div>

@@ -54,8 +54,8 @@ export default function TextForm(props) {
         <h1>{props.heading}</h1>
         <div>
           {/* backgorund color change can be possible by using props as well but in that case we can use only the background colors given by bootstrap only */}
-          <textarea className={`form-control text-${props.textColor} bg-${props.textAreaBackground}`} id='myBox' rows="5" value={text} onChange={handleOnChange}></textarea>
-          {/* <textarea className={`form-control text-${props.textColor}}`} style={{backgroundColor: props.mode==='dark'?'grey':'white'}} id='myBox' rows="5" value={text} onChange={handleOnChange}></textarea> */}
+          {/* <textarea className={`form-control text-${props.textColor} bg-${props.textAreaBackground}`} id='myBox' rows="5" value={text} onChange={handleOnChange}></textarea> */}
+          <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
         </div>
         <div className='my-3'>
           <button className='btn btn-primary' onClick={handleUpClick}>Convert to UpperCase</button>
