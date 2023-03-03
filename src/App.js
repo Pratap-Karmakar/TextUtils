@@ -12,7 +12,7 @@ function App() {
 
   const [mode, setMode] = useState('light')
 
-  const [toggleText, setToggleText] = useState('Dark Mode');
+  const [toggleText, setToggleText] = useState('Light Mode');
 
   const [textColor, setTextColor] = useState('black')
 
@@ -24,9 +24,9 @@ function App() {
   const toggleSwitch = () => {
     if (mode === 'light') {
       setMode('dark');
-      setToggleText('Light Mode');
+      setToggleText('Dark Mode');
       setTextColor('white');
-      document.body.style.backgroundColor = '#072c50';
+      document.body.style.backgroundColor = '#070c50';
       // bootstrap backgound color class name
       setTextAreaBackground('secondary');
       // we need to call the showAlert function here and pass it's two arguments message and type  to show an alert while dark mode is enabled
@@ -41,7 +41,7 @@ function App() {
     }
     else {
       setMode('light');
-      setToggleText('Dark Mode')
+      setToggleText('Light Mode')
       setTextColor('black')
       document.body.style.backgroundColor = 'white'
       setTextAreaBackground('light');
@@ -76,7 +76,7 @@ function App() {
       <div className='container my-3'>
       <Routes>
         <Route exact path='/' element={<TextForm heading="Enter the text to analyze below..." textColor={textColor} textAreaBackground={textAreaBackground} showAlert={showAlert} mode={mode} />} />
-        <Route exact path="/about" element={<About heading="About Us" />} />
+        <Route exact path="/about" element={<About heading="About Us" mode={mode}/>} />
       </Routes>
       </div>
 

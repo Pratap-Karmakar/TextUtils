@@ -69,8 +69,10 @@ export default function TextForm(props) {
 
       <div className='my-4'>
         <h2>Your text summary</h2>
+        {/* as we've added the filter function so that split function doesn't count the space as a word */}
         <h4>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</h4>
-        <h5>{0.008 * text.split(" ").length} Minuits to read</h5>
+        {/* as we've added the filter function so that split function doesn't count the space as a word */}
+        <h5>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minuits to read</h5>
         <h3 className='my-4'>Preview</h3>
         {/* it means if text.length>0 if true means there is something already in the above textarea then preview the {text} or if it's false means there is nothing in the above textarea then show the "massage" */}
         {/* here '?' means then ':' means or  */}

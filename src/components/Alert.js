@@ -12,8 +12,15 @@ export default function Alert(props) {
     // && means if props.alert gets evaluted the the next whole div part will also get ecaluted as it's happening here and if props.alert doenm't get evaluted the the next div part eill aslo not getls evaluted
 
     // we can also say that idf props.alert is not null then do the div par executed, this is happening beczuse of all the jsx will be converted to javascript calls
-      props.alert && <div className="alert alert-warning alert-dismissible fade show" role="alert">
+
+    // we are adding this hgight to prevent the page shifting down while as alert is shown
+    <div style={{height: '50px'}}>
+
+      {/* as props.alert is a javascript syntax and we are writing it inside a div so for that reason we need to wrap it inside curley brases */}
+      {props.alert && 
+      <div className="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>{capitalize(props.alert.type)}</strong>:{capitalize(props.alert.msg)}
-      </div>
+      </div>}
+    </div>
   )
 }
