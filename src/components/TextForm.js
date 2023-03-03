@@ -58,18 +58,18 @@ export default function TextForm(props) {
           <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
         </div>
         <div className='my-3'>
-          <button className='btn btn-primary' onClick={handleUpClick}>Convert to UpperCase</button>
-          <button className='btn btn-primary' onClick={handleLowerClick} style={{ marginLeft: 4 }}>Convert to LowerCase</button>
-          <button className='btn btn-primary' onClick={handleClearText} style={{ marginLeft: 4 }}>Clear text</button>
-          <button className='btn btn-primary' onClick={handleCopyText} style={{ marginLeft: 4 }} id="copy">Copy text</button>
-          <button className='btn btn-primary' onClick={handleExtraSpaces} style={{ marginLeft: 4 }} id="copy">Remove Extra Spaces Split</button>
-          <button className='btn btn-primary' onClick={removeReplaceSpace} style={{ marginLeft: 4 }} id="copy">Remove Extra Spaces Replace</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={handleUpClick}>Convert to UpperCase</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={handleLowerClick} style={{ marginLeft: 4 }}>Convert to LowerCase</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={handleClearText} style={{ marginLeft: 4 }}>Clear text</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={handleCopyText} style={{ marginLeft: 4 }} id="copy">Copy text</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={handleExtraSpaces} style={{ marginLeft: 4 }} id="copy">Remove Extra Spaces Split</button>
+          <button className='btn btn-primary mx-1 my-1' onClick={removeReplaceSpace} style={{ marginLeft: 4 }} id="copy">Remove Extra Spaces Replace</button>
         </div>
       </div>
 
       <div className='my-4'>
         <h2>Your text summary</h2>
-        <h4>{text.split(" ").length} Words and {text.length} Characters</h4>
+        <h4>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</h4>
         <h5>{0.008 * text.split(" ").length} Minuits to read</h5>
         <h3 className='my-4'>Preview</h3>
         {/* it means if text.length>0 if true means there is something already in the above textarea then preview the {text} or if it's false means there is nothing in the above textarea then show the "massage" */}
