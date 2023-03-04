@@ -14,7 +14,7 @@ export default function Alert(props) {
     // we can also say that idf props.alert is not null then do the div par executed, this is happening beczuse of all the jsx will be converted to javascript calls
 
     // we are adding this hgight to prevent the page shifting down while as alert is shown
-    <div style={{height: '50px'}}>
+    <div style={{height: '60px'}}>
 
       {/* as props.alert is a javascript syntax and we are writing it inside a div so for that reason we need to wrap it inside curley brases */}
       {props.alert && 

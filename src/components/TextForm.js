@@ -25,11 +25,7 @@ export default function TextForm(props) {
   }
   // to copy the text
   const handleCopyText = () => {
-    let newText = document.getElementById('myBox');
-    newText.select();
-    navigator.clipboard.writeText(newText.value);
-    // after copy the text will still all selected to deselected the text automatically
-    document.getSelection().removeAllRanges();;
+    navigator.clipboard.writeText(text);
     props.showAlert("Text copied","success")
   }
   /// to remove extra spaces
